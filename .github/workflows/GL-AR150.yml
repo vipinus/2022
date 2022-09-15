@@ -23,7 +23,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout
@@ -38,7 +38,7 @@ jobs:
     - name: Clone source code
       env: 
         REPO_URL: https://github.com/openwrt/openwrt.git
-        REPO_BRANCH: v21.02.2
+        REPO_BRANCH: v22.03.0
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
