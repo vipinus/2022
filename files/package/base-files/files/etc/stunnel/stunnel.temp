@@ -1,11 +1,8 @@
 cert = /etc/stunnel/stunnel.pem
 key = /etc/stunnel/stunnel.pem
-sslVersion = TLSv1
-socket = l:TCP_NODELAY=1
-socket = r:TCP_NODELAY=1
 client = yes
 
 [vpn]
 accept = 127.0.0.1:1080
-connect = jp.vipin.us:8443
+connect = cc.fanq.in:22
 PSKsecrets = /etc/stunnel/psk.txt
