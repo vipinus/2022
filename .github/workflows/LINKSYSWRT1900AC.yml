@@ -47,7 +47,6 @@ jobs:
       working-directory: ./openwrt
       run: |
         git clone https://ddvb:E4b3k7y8-123@github.com/ddvb/openwrt-redsocks2.git package/redsocks2
-        git clone https://ddvb:E4b3k7y8-123@github.com/ddvb/openwrt-chinadns.git package/chinadns
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 #        
