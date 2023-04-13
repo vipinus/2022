@@ -23,7 +23,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout
@@ -38,7 +38,7 @@ jobs:
     - name: Clone source code
       env: 
         REPO_URL: https://github.com/openwrt/openwrt.git
-        REPO_BRANCH: v21.02.2
+        REPO_BRANCH: v22.03.4
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
@@ -47,10 +47,9 @@ jobs:
       working-directory: ./openwrt
       run: |
         git clone https://ddvb:E4b3k7y8-123@github.com/ddvb/openwrt-redsocks2.git package/redsocks2
-        git clone https://ddvb:E4b3k7y8-123@github.com/ddvb/openwrt-chinadns.git package/chinadns
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-#        
+        
     - name: Configuration Customization
       env:
         CONFIG_FILE: 'LINKSYSWRT3200ACM.config'
@@ -58,8 +57,6 @@ jobs:
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
         cd openwrt && make defconfig
-#        make ./package/redsocks2/compile V=99
-#        make ./package/chinadns/compile V=99
        
     - name: Download package
       working-directory: ./openwrt
