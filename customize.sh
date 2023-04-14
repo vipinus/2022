@@ -10,4 +10,4 @@ cp -r files/* openwrt/
 chmod +x openwrt/package/base-files/files/etc/rc.local
 chmod +x openwrt/package/base-files/files/etc/crontabs/root
 chmod +x openwrt/package/base-files/files/sbin/*
-chmod +x openwrt/package/base-files/files/etc/init.d/redsock2
+chmod +x openwrt/package/base-files/files/etc/init.d/redsocks2
