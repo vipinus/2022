@@ -49,9 +49,6 @@ start_redsocks2() {
 }
 
 boot() {
-	until iptables-save -t nat | grep -q "^:zone_lan_prerouting"; do
-		sleep 1
-	done
 	start
 }
 
