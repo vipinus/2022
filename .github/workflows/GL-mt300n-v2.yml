@@ -5,15 +5,15 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: GL-6408A1
+name: GL-mt300n-v2
 
 on: 
   release:
     types: [published]
 
-  #push: 
-  #  branches: 
-  #    - master
+  push: 
+    branches: 
+      - master
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -52,7 +52,7 @@ jobs:
 #        
     - name: Configuration Customization
       env:
-        CONFIG_FILE: 'GL-6408A1.config'
+        CONFIG_FILE: 'GL-mt300n-v2.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
