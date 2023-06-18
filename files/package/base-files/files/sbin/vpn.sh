@@ -27,10 +27,11 @@ file="/tmp/vpndown.lock"
 wget --no-check-certificate "https://www.8964.date/v201804/psk.txt?username="$username"&password="$pass"&mac="$mac"&mod="$mod -O /etc/stunnel/psk.txt
 if [ ! -f "$file" ]; then
 	killall -9 stunnel
-	/etc/init.d/redsocks2 stop
+	/etc/init.d/redsocks stop
+ 	iptables -t nat -X REDSOCKS
+ 	iptables -t nat	-D PREROUTING -p tcp -j REDSOCKS
 	rm -rf /tmp/vpnup.lock
 	touch $file
-	/etc/init.d/redsocks2 disable
 fi
 fi
 rm -rf $lock
