@@ -14,12 +14,10 @@ if [ ! -f "$file" ]; then
 		cp -r /etc/stunnel/stunnel.temp /etc/stunnel/stunnel.conf
 		killall -9 stunnel
 		/etc/init.d/stunnel start
-		/etc/init.d/redsocks2 stop
-		/etc/init.d/redsocks2 start
+		rtab.sh
 #		/etc/config/vipin/ledon.sh
 		rm -rf /tmp/vpndown.lock
 		touch "$file"
-		/etc/init.d/redsocks2 enable
 	fi
 fi
 rm -rf /tmp/vpn.lock
