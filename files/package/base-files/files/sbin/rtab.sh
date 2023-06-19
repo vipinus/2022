@@ -4,7 +4,8 @@ if [ ! -f "$file" ]; then
     touch /tmp/rtab.lock
     /etc/init.d/redsocks start
     iptables -t nat -N REDSOCKS
-	iptables -t nat	-A REDSOCKS -d 0.0.0.0/8 -j RETURN
+	iptables -t nat	-A REDSOCKS -d 0.0.0.0 -j RETURN
+	iptables -t nat	-A REDSOCKS -d 255.255.255.255 -j RETURN
 	iptables -t nat	-A REDSOCKS -d 10.0.0.0/8 -j RETURN
 	iptables -t nat	-A REDSOCKS -d 127.0.0.0/8 -j RETURN
 	iptables -t nat	-A REDSOCKS -d 169.254.0.0/16 -j RETURN
