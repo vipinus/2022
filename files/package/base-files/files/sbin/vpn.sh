@@ -29,6 +29,7 @@ if [ ! -f "$file" ]; then
 	killall -9 stunnel
 	/etc/init.d/redsocks stop
  	iptables -t nat -X REDSOCKS
+  	iptables -t nat -D OUTPUT -p tcp -j REDSOCKS
  	iptables -t nat	-D PREROUTING -p tcp -j REDSOCKS
 	rm -rf /tmp/vpnup.lock
 	touch $file
