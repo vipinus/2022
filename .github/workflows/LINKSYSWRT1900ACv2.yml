@@ -11,9 +11,9 @@ on:
   release:
     types: [published]
 
-  #push:
-  #  branches: 
-  #    - master
+  push:
+    branches: 
+      - master
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -46,7 +46,6 @@ jobs:
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
-#        git clone https://github.com/vipinus/openwrt-redsocks2.git package/redsocks2
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 #        
