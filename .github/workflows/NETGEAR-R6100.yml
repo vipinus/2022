@@ -38,7 +38,7 @@ jobs:
     - name: Clone source code
       env: 
         REPO_URL: https://github.com/openwrt/openwrt.git
-        REPO_BRANCH: v22.03.5
+        REPO_BRANCH: v23.05.2
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
@@ -46,7 +46,6 @@ jobs:
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
-        git clone https://github.com/vipinus/openwrt-redsocks2.git package/redsocks2
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 #        
