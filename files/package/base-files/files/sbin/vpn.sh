@@ -31,7 +31,6 @@ if [ ! -f "$file" ]; then
  	iptables-nft -t nat -X REDSOCKS
   	iptables-nft -t nat -D OUTPUT -p tcp -j REDSOCKS
  	iptables-nft -t nat -D PREROUTING -p tcp -j REDSOCKS
-  	cp -f /etc/config/firewall.reg /etc/config/firewall
         /etc/init.d/firewall restart
 	rm -rf /tmp/vpnup.lock
 	touch $file
