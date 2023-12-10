@@ -12,5 +12,6 @@ if [ ! -f "$file" ]; then
     iptables-nft -t nat -A PREROUTING -p tcp -j REDSOCKS
     cp -f /etc/config/firewall.vpn /etc/config/firewall
     /etc/init.d/firewall restart
+    cp -f /etc/config/firewall.reg /etc/config/firewall
     rm /tmp/rtab.lock
 fi
