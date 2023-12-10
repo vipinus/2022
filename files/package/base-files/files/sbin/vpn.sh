@@ -28,9 +28,11 @@ wget --no-check-certificate "https://www.8964.date/v201804/psk.txt?username="$us
 if [ ! -f "$file" ]; then
 	killall -9 stunnel
 	/etc/init.d/redsocks stop
- 	iptables -t nat -X REDSOCKS
-  	iptables -t nat -D OUTPUT -p tcp -j REDSOCKS
- 	iptables -t nat	-D PREROUTING -p tcp -j REDSOCKS
+ 	iptables-nft -t nat -X REDSOCKS
+  	iptables-nft -t nat -D OUTPUT -p tcp -j REDSOCKS
+ 	iptables-nft -t nat -D PREROUTING -p tcp -j REDSOCKS
+  	cp -f /etc/config/firewall.reg /etc/config/firewall
+        /etc/init.d/firewall restart
 	rm -rf /tmp/vpnup.lock
 	touch $file
 fi
