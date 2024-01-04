@@ -1,2 +1,4 @@
 /etc/init.d/redsocks enable
 chmod 600 /etc/stunnel/stunnel.pem
+mount /etc/dnsmasq.d /tmp/dnsmasq.d
+/etc/init.d/dnsmasq restart
